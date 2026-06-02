@@ -1,0 +1,576 @@
+/* index.css */
+
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --ink: #1a1510;
+      --gold: #b8962e;
+      --gold-light: #d4af5a;
+      --muted: #6b6256;
+      --border: #d6cec0;
+      --section-gap: 80px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: relative;
+      padding: 70px 40px 60px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(160deg, #faf7f2 0%, var(--cream) 60%);
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 320px; height: 320px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 200px; height: 200px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      opacity: 0.4;
+    }
+
+    .company-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .company-name-ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }
+    .header-meta {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      line-height: 2;
+    }
+    .header-meta span {
+      display: inline-block;
+      margin: 0 12px;
+    }
+    .divider-line {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 24px auto;
+    }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    section {
+      padding: var(--section-gap) 0;
+      border-bottom: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section:last-child { border-bottom: none; }
+
+    /* ── SECTION HEADING ── */
+    .sec-heading {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .sec-heading::before {
+      content: '';
+      display: block;
+      width: 3px;
+      height: 36px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .sec-heading h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--ink);
+    }
+    .sec-heading .en {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ── CEO PHOTO ── */
+    .ceo-photo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .ceo-photo {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--gold-light);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    }
+
+    /* ── GREETING ── */
+    .greeting-text {
+      font-size: 1rem;
+      line-height: 2.1;
+      color: var(--ink);
+      margin-bottom: 28px;
+    }
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .skill-tag {
+      padding: 12px 18px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      position: relative;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .skill-tag::before {
+      content: '▸';
+      color: var(--gold);
+      margin-right: 8px;
+      font-size: 0.7rem;
+    }
+    .skill-tag:hover {
+      background: #faf8f3;
+    }
+
+    /* ── HISTORY ── */
+    .subsection-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin: 36px 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .subsection-title:first-of-type { margin-top: 0; }
+
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 4px; top: 8px; bottom: 8px;
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -28px; top: 8px;
+      width: 8px; height: 8px;
+      border: 1.5px solid var(--gold);
+      background: var(--cream);
+      border-radius: 50%;
+    }
+    .timeline-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .timeline-desc {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--ink);
+    }
+    .timeline-note {
+      margin-top: 10px;
+      padding: 14px 18px;
+      background: #fff;
+      border-left: 2px solid var(--gold-light);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 2;
+    }
+
+    /* ── QUALIFICATIONS & TOOLS ── */
+    .list-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .list-card {
+      padding: 16px 20px;
+      background: #fff;
+      border: 1px solid var(--border);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.83rem;
+      color: var(--ink);
+      line-height: 1.7;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .list-card:hover {
+    }
+    .list-card .num {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    /* ── PORTFOLIO ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .portfolio-card {
+      display: block;
+      padding: 28px 24px;
+      background: #fff;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--ink);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .portfolio-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .portfolio-card:hover { }
+    .portfolio-card .icon {
+      font-size: 1.8rem;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .portfolio-card .title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .portfolio-card .arrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-top: 14px;
+      display: block;
+    }
+
+    /* ── CONTACT ── */
+    .contact-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .contact-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      text-transform: uppercase;
+      min-width: 80px;
+    }
+    .contact-link {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.9rem;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+      letter-spacing: 0.05em;
+    }
+    .contact-link:hover { border-bottom-color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── PHOTOGRAPHER PAGE ── */
+    .photo-section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin: 36px 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .photo-section-title:first-of-type { margin-top: 0; }
+
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 16px;
+    }
+    .photo-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .photo-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+    .photo-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .photo-card img.pos-center {
+      object-position: center center;
+    }
+    .photo-card-caption {
+      padding: 14px 18px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .photo-card-caption a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    .photo-card-caption a:hover { border-bottom-color: var(--gold); }
+
+    /* ── MEDIA LIST ── */
+    .media-group {
+      margin-bottom: 40px;
+    }
+    .media-group:last-child { margin-bottom: 0; }
+    .media-outlet {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .media-type {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .media-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .media-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.82rem;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+      word-break: break-all;
+    }
+    .media-link::before {
+      content: '→';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .media-link:hover { border-bottom-color: var(--gold); }
+
+    .other-career {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .other-career-item {
+      padding: 16px 20px;
+      background: #fff;
+      border: 1px solid var(--border);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.83rem;
+      color: var(--ink);
+      line-height: 1.8;
+      border-left: 3px solid var(--gold-light);
+    }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    #lightbox.active { display: flex; }
+    #lightbox img {
+      max-width: 92vw;
+      max-height: 92vh;
+      object-fit: contain;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+    }
+    #lightbox-close {
+      position: fixed;
+      top: 20px; right: 28px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    #lightbox-close:hover { opacity: 1; }
+    #lightbox-prev, #lightbox-next {
+      position: fixed;
+      top: 50%; transform: translateY(-50%);
+      font-size: 2.2rem;
+      color: #fff;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      font-family: 'Cormorant Garamond', serif;
+      user-select: none;
+      padding: 16px;
+    }
+    #lightbox-prev { left: 12px; }
+    #lightbox-next { right: 12px; }
+    #lightbox-prev:hover, #lightbox-next:hover { opacity: 1; }
+    .photo-card img { cursor: zoom-in; }
+
+    /* ── BACK LINK ── */
+    .back-link-wrap {
+      padding: 40px 32px 20px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .back-link {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s;
+    }
+    .back-link:hover { color: var(--gold); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 60px 40px 50px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(160deg, #faf7f2 0%, var(--cream) 60%);
+    }
+    .page-hero .role-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      letter-spacing: 0.4em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .page-hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 50px 24px 44px; }
+      main { padding: 0 20px; }
+      :root { --section-gap: 56px; }
+      .skill-grid, .list-cards, .portfolio-grid { grid-template-columns: 1fr; }
+      .back-link-wrap { padding: 32px 20px 16px; }
+    }
+  
