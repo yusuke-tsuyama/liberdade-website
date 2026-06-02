@@ -56,7 +56,7 @@
     document.getElementById('page-main').style.display = 'none';
     document.getElementById('page-' + page).style.display = 'block';
     window.scrollTo(0, 0);
-    // trigger reveal for sub-page sections
+    history.pushState({ page: page }, '', '#' + page);
     document.querySelectorAll('#page-' + page + ' section').forEach(s => {
       setTimeout(() => s.classList.add('visible'), 100);
     });
@@ -65,6 +65,7 @@
     document.querySelectorAll('.sub-page').forEach(p => p.style.display = 'none');
     document.getElementById('page-main').style.display = 'block';
     window.scrollTo(0, 0);
+    history.pushState({ page: 'main' }, '', location.pathname);
   }
   function showPhotoCategory(cat) {
     const map = { portrait: 'portrait', product: 'product', architecture: 'architecture' };
@@ -73,6 +74,25 @@
     if (target) {
       target.style.display = 'block';
       window.scrollTo(0, 0);
+      history.pushState({ page: 'photo-' + cat }, '', '#photo-' + cat);
       target.querySelectorAll('section').forEach(s => setTimeout(() => s.classList.add('visible'), 100));
     }
   }
+  window.addEventListener('popstate', function(e) {
+    const state = e.state;
+    if (!state || state.page === 'main') {
+      document.querySelectorAll('.sub-page').forEach(p => p.style.display = 'none');
+      document.getElementById('page-main').style.display = 'block';
+      window.scrollTo(0, 0);
+    } else if (state.page.startsWith('photo-')) {
+      const cat = state.page.replace('photo-', '');
+      document.querySelectorAll('.sub-page').forEach(p => p.style.display = 'none');
+      const target = document.getElementById('page-photo-' + cat);
+      if (target) { target.style.display = 'block'; window.scrollTo(0, 0); }
+    } else {
+      document.querySelectorAll('.sub-page').forEach(p => p.style.display = 'none');
+      document.getElementById('page-main').style.display = 'none';
+      const target = document.getElementById('page-' + state.page);
+      if (target) { target.style.display = 'block'; window.scrollTo(0, 0); }
+    }
+  });
