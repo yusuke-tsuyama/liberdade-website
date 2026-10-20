@@ -257,9 +257,6 @@
       font-size: 0.83rem;
       color: var(--ink);
       line-height: 1.7;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .list-card:hover {
     }
     .list-card .num {
       display: block;
