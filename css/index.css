@@ -559,6 +559,22 @@
       color: var(--ink);
     }
 
+    /* ── LEAD / NOTE TEXT ── */
+    .lead-text {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem;
+      line-height: 2.1;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .note-text {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+
     @media (max-width: 600px) {
       header { padding: 50px 24px 44px; }
       main { padding: 0 20px; }
