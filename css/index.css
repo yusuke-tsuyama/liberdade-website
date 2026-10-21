@@ -575,6 +575,40 @@
       margin-bottom: 16px;
     }
 
+    /* ── CTA / CHECK LIST ── */
+    .cta-button {
+      display: inline-block;
+      padding: 14px 40px;
+      background: var(--gold);
+      color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      transition: background 0.3s, color 0.3s;
+    }
+    .cta-button:hover { background: #fff; color: var(--gold); }
+    .check-list { list-style: none; margin-bottom: 8px; }
+    .check-list li {
+      position: relative;
+      padding: 12px 20px 12px 48px;
+      margin-bottom: 8px;
+      background: #fff;
+      border: 1px solid var(--border);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+    .check-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 20px;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
     @media (max-width: 600px) {
       header { padding: 50px 24px 44px; }
       main { padding: 0 20px; }
@@ -582,4 +616,7 @@
       .skill-grid, .list-cards, .portfolio-grid { grid-template-columns: 1fr; }
       .back-link-wrap { padding: 32px 20px 16px; }
     }
-  
+
+    @media (max-width: 600px) {
+      .cta-button { display: block; text-align: center; padding: 14px 20px; }
+    }
