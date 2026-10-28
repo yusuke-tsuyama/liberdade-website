@@ -627,3 +627,59 @@
     @media (max-width: 600px) {
       .cta-button { display: block; text-align: center; padding: 14px 20px; }
     }
+
+    /* ── MISSION / VALUES ── */
+    .mission-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0 0 8px;
+    }
+    .mission-text {
+      font-size: 1.25rem;
+      line-height: 2;
+      margin-bottom: 36px;
+    }
+    .value-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .value-item { border-top: 2px solid var(--gold); padding-top: 14px; }
+    .value-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+    .value-desc {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    /* ── DASHBOARDS ── */
+    .dashboard-gallery { display: flex; flex-direction: column; gap: 32px; margin: 8px 0 12px; }
+    .dashboard-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--border);
+      cursor: zoom-in;
+    }
+    .dashboard-item figcaption {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.85rem;
+      line-height: 1.9;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+    .dashboard-item figcaption strong { display: block; color: var(--ink); font-size: 0.95rem; }
+
+    @media (max-width: 600px) {
+      .value-list { grid-template-columns: 1fr; }
+      .mission-text { font-size: 1.1rem; }
+    }
+
+    /* ── BUSINESS / HEADER LINK ── */
+    .biz-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+    .biz-card { border: 1px solid var(--border); border-top: 2px solid var(--gold); padding: 18px 20px; background: #fff; }
+    .biz-title { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+    .biz-desc { font-family: 'Noto Sans JP', sans-serif; font-size: 0.82rem; color: var(--muted); line-height: 1.9; }
+    .header-contact { margin-top: 14px; font-family: 'Noto Sans JP', sans-serif; font-size: 0.8rem; }
+    .header-contact a { color: var(--gold); text-decoration: none; letter-spacing: 0.1em; }
+    .header-contact a:hover { text-decoration: underline; }
